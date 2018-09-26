@@ -17,7 +17,10 @@ var app = new Vue({
         }
         fetch('http://neo.mywish.io/api/request/', {
           method: 'post',
-          body: JSON.stringify(request)
+          body: JSON.stringify(request),
+          headers: {
+            "Content-Type": "application/json"
+          },
         }).then(res => {
           this.key = '';
         });
