@@ -13,7 +13,7 @@ var app = new Vue({
       if (this.isValid && response.length != 0) {
         var request = {
           address: this.key,
-          'g-recaptcha-responce': response
+          'g-recaptcha-response': response
         }
         fetch('http://neo.mywish.io/api/request/', {
           method: 'post',
