@@ -15,7 +15,7 @@ var app = new Vue({
           address: this.key,
           'g-recaptcha-responce': response
         }
-        fetch('http://neo.mywish.io/', {
+        fetch('http://neo.mywish.io/api/request/', {
           method: 'post',
           body: JSON.stringify(request)
         }).then(res => {
