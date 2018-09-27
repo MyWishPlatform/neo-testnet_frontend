@@ -32,6 +32,9 @@
           This faucet provides 1000 NEO and Gas for one NEO address from one IP address.
         </div>
       </div>
+      <div v-if="errorText && !inputDirty" class="body__error">{{errorText}}</div>
+      <div v-if="!isValid && inputDirty" class="body__error">Invalid address, please check</div>
+      <div v-if="success" class="body__success">Assets were successfully sent</div>
     </section>
   </div>
   <footer class="footer">

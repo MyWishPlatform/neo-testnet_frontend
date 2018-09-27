@@ -2,11 +2,14 @@ var app = new Vue({
   el: '#app',
   data: {
     key: '',
-    inputDirty: false
+    inputDirty: false,
+    success: false,
+    errorText: ''
   },
   methods: {
     onChange: function () {
       this.inputDirty = true;
+      this.success = false;
     },
     sendNeo: function() {
       var response = grecaptcha.getResponse();
@@ -23,6 +26,12 @@ var app = new Vue({
           },
         }).then(res => {
           this.key = '';
+          this.inputDirty = false;
+          if (!res.success) {
+            this.errorText = 'Error'
+          } else {
+            this.success = true;
+          }
         });
       }
     }

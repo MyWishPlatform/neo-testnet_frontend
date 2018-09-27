@@ -440,6 +440,7 @@ body {
   }
   &__row {
     display: flex;
+    margin-bottom: 10px;
   }
   &__info {
     width: 300px;
@@ -449,6 +450,12 @@ body {
     font-weight: 400;
     line-height: 22px;
     margin-left: 33px;
+  }
+  &__error {
+    color: #c41c1c;
+  }
+  &__success {
+    color: #40bb00;
   }
 }
 
