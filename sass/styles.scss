@@ -376,7 +376,7 @@ body {
   background-color: #40bb00;
   border: none;
   cursor: pointer;
-  transition: all .1s ease;
+  transition: all 0.1s ease;
   font-variant-ligatures: none;
   &:hover {
     background-color: #3dad00;
@@ -482,8 +482,67 @@ body {
   }
 }
 
-@media(max-width: 1124px) {
+@media (max-width: 1124px) {
   body {
     background: #f2f2f2;
+  }
+  .container {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .footer {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    left: calc(50% - 300px);
+  }
+}
+
+@media (max-width: 660px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    &__neo {
+      margin-right: 0;
+    }
+  }
+  .container {
+    padding: 0 20px;
+    margin: 0;
+    min-height: auto;
+  }
+  .body {
+    &__input,
+    &__desc {
+      width: auto;
+      max-width: 100%;
+    }
+    &__info {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+    &__row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .footer {
+    padding: 20px;
+    position: relative;
+    left: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    &__tg,
+    &__mywish {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    &__mywish {
+      img {
+        width: 200px;
+      }
+    }
   }
 }
