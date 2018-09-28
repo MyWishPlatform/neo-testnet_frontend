@@ -24,15 +24,17 @@ var app = new Vue({
           headers: {
             "Content-Type": "application/json"
           },
-        }).then(res => {
+        }).then(function (res) {
+          return res.json();
+        }).then(function (data) {
           this.key = '';
           this.inputDirty = false;
-          if (!res.success) {
+          if (!data.success) {
             this.errorText = 'Error'
           } else {
             this.success = true;
           }
-        });
+        })
       }
     }
   },
