@@ -334,6 +334,10 @@ template {
   display: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /**
  * Add the correct display in IE 10.
  */
@@ -358,6 +362,7 @@ body {
   background: #f2f2f2 url('../img/bg.jpg') no-repeat;
   background-position: right top;
   font-family: TT, sans-serif;
+  color:  #383838;
   font-variant-ligatures: none;
 }
 
@@ -421,6 +426,7 @@ body {
     margin-bottom: 5px;
   }
   &__input {
+    font-variant-ligatures: none;
     width: 369px;
     border-radius: 6px;
     background-color: #ffffff;
@@ -436,11 +442,13 @@ body {
     }
   }
   .g-recaptcha {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
   &__row {
     display: flex;
     margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 30px;
   }
   &__info {
     width: 300px;
@@ -450,6 +458,11 @@ body {
     font-weight: 400;
     line-height: 22px;
     margin-left: 33px;
+  }
+  &__success, &__error {
+    position: absolute;
+    bottom: 0;
+    top: 60px;
   }
   &__error {
     color: #c41c1c;
@@ -476,6 +489,9 @@ body {
   &__tg {
     display: flex;
     align-items: center;
+    a {
+      color: #000;
+    }
     img {
       margin-right: 16px;
     }
@@ -504,7 +520,11 @@ body {
     display: flex;
     justify-content: space-between;
     &__neo {
-      margin-right: 0;
+      margin-left: 0;
+      margin-right: 10px;
+      img {
+        width: 100%;
+      }
     }
   }
   .container {
@@ -520,11 +540,12 @@ body {
     }
     &__info {
       margin-left: 0;
-      margin-top: 20px;
+      margin-top: 40px;
     }
     &__row {
       flex-direction: column;
       align-items: flex-start;
+      margin-bottom: 40px;
     }
   }
   .footer {
@@ -537,11 +558,11 @@ body {
     &__tg,
     &__mywish {
       width: 100%;
-      margin-bottom: 20px;
     }
     &__mywish {
+      margin-top: 60px;
       img {
-        width: 200px;
+        width: 100px;
       }
     }
   }

@@ -72,6 +72,7 @@ gulp.task('browserSync', function() {
             baseDir: "./build/"
         },
         port: 8000,
+        ghostMode: false,
         open: true,
         notify: false
     });

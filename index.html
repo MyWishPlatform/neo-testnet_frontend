@@ -12,7 +12,9 @@
 <body>
   <div id="app" class="container">
     <div class="header">
-      <img class="header__neo" src="img/neo.png" alt="">
+      <a href="https://neo.org" target="_blank" class="header__neo">
+        <img src="img/neo.png" alt="">
+      </a>
       <div class="header__faucet">
         Faucet
       </div>
@@ -28,13 +30,13 @@
         <button v-on:click="sendNeo()" class="button">
           Send me 1000 NEO test assets
         </button>
+        <div v-if="errorText && !inputDirty" class="body__error">{{errorText}}</div>
+        <div v-if="!isValid && inputDirty" class="body__error">Invalid address, please check</div>
+        <div v-if="success" class="body__success">Assets were successfully sent</div>
         <div class="body__info">
           This faucet provides 1000 NEO and Gas for one NEO address from one IP address.
         </div>
       </div>
-      <div v-if="errorText && !inputDirty" class="body__error">{{errorText}}</div>
-      <div v-if="!isValid && inputDirty" class="body__error">Invalid address, please check</div>
-      <div v-if="success" class="body__success">Assets were successfully sent</div>
     </section>
   </div>
   <footer class="footer">
@@ -42,12 +44,14 @@
       <span>
         Developed & supported by
       </span>
-      <img src="img/mywish.png" alt="mywish">
+      <a href="https://mywish.io" target="_blank">
+        <img src="img/mywish.png" alt="mywish">
+      </a>
     </div>
     <div class="footer__tg">
       <img src="img/tg.png" alt="telegram">
       <span>
-        get telegram bot to recieve test <br>
+        <a target="_blank" href="https://t.me/NEO_testnet_faucet_bot">get telegram bot</a> to recieve test <br>
         gas in more convenient way
       </span>
     </div>
