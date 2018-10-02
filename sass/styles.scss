@@ -443,6 +443,7 @@ body {
   }
   .g-recaptcha {
     margin-bottom: 25px;
+    
   }
   &__row {
     display: flex;
@@ -483,6 +484,7 @@ body {
     flex-direction: column;
     span {
       margin-bottom: 8px;
+      font-size: 15px;
     }
     margin-right: 126px;
   }
@@ -565,5 +567,16 @@ body {
         width: 100px;
       }
     }
+  }
+}
+
+@media (max-width: 350px) {
+  .g-recaptcha {
+    & > div {
+      margin-left: -10px;
+      & > div > iframe {
+      }
+    }
+    
   }
 }

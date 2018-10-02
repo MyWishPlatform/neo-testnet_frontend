@@ -28,16 +28,16 @@
       v-bind:class="{invalid: !isValid && inputDirty}"
       v-model="key" class="body__input" placeholder="AP5n91qDhmoNG5S71LMBBmn9C4XcMGZDz"
       id="key" name="key" type="text">
-      <div class="g-recaptcha" data-sitekey="6LdK7HEUAAAAAKALhtoEihuIPTIm0u_hAmOpr6-B"></div>
+      <div class="g-recaptcha" data-sitekey="6LfaH3MUAAAAAGn1HQMHMKn22xxN6_OUt7DwJ0-V"></div>
       <div class="body__row">
         <button v-on:click="sendNeo()" class="button">
-          Send me 1000 NEO test assets
+          Send me 3000 NEO test assets
         </button>
         <div v-if="errorText && !inputDirty" class="body__error">{{errorText}}</div>
-        <div v-if="!isValid && inputDirty" class="body__error">Invalid address, please check</div>
+        <div v-if="!isValid && inputDirty" class="body__error">Invalid address. Please check your input.</div>
         <div v-if="success" class="body__success">Assets were successfully sent</div>
         <div class="body__info">
-          This faucet provides 1000 NEO and Gas for one NEO address from one IP address.
+            This faucet provides 3000 NEO and 3000 Gas for just one NEO address and one IP address.
         </div>
       </div>
     </section>
@@ -52,9 +52,11 @@
       </a>
     </div>
     <div class="footer__tg">
-      <img src="img/tg.png" alt="telegram">
+      <a href="https://mywish.io" target="_blank">
+          <img src="img/tg.png" alt="telegram">
+      </a>
       <span>
-        <a target="_blank" href="https://t.me/NEO_testnet_faucet_bot">get telegram bot</a> to recieve test <br>
+        <a target="_blank" href="https://t.me/NEO_testnet_faucet_bot">get our telegram bot</a> to recieve test <br>
         gas in more convenient way
       </span>
     </div>
