@@ -447,13 +447,15 @@ body {
   }
   &__row {
     display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     margin-bottom: 10px;
     position: relative;
     padding-bottom: 30px;
   }
   &__info {
     width: 300px;
-    height: 44px;
+    //height: 44px;
     color: #8c8c8c;
     font-size: 15px;
     font-weight: 400;
@@ -461,9 +463,9 @@ body {
     margin-left: 33px;
   }
   &__success, &__error {
-    position: absolute;
-    bottom: 0;
-    top: 60px;
+    width: 100%;
+    margin-top: 15px;
+
   }
   &__error {
     color: #c41c1c;
@@ -543,6 +545,7 @@ body {
     &__info {
       margin-left: 0;
       margin-top: 40px;
+      width: 100%;
     }
     &__row {
       flex-direction: column;
