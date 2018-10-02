@@ -18,6 +18,7 @@ var app = new Vue({
           address: this.key,
           'g-recaptcha-response': response
         }
+        const self = this;
         fetch('http://neo.mywish.io/api/request/', {
           method: 'post',
           body: JSON.stringify(request),
@@ -27,12 +28,12 @@ var app = new Vue({
         }).then(function (res) {
           return res.json();
         }).then(function (data) {
-          this.key = '';
-          this.inputDirty = false;
+          self.key = '';
+          self.inputDirty = false;
           if (!data.success) {
-            this.errorText = 'Error'
+            self.errorText = 'Error'
           } else {
-            this.success = true;
+            self.success = true;
           }
         })
       }

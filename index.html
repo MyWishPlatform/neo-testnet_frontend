@@ -24,7 +24,10 @@
         Fill the following application form to receive test assets for NEO Testnet.
       </div>
       <label class="body__label" for="key">NEO address</label>
-      <input @change="onChange()" v-bind:class="{invalid: !isValid && inputDirty}" v-model="key" class="body__input" id="key" name="key" type="text">
+      <input @change="onChange()"
+      v-bind:class="{invalid: !isValid && inputDirty}"
+      v-model="key" class="body__input" placeholder="AP5n91qDhmoNG5S71LMBBmn9C4XcMGZDz"
+      id="key" name="key" type="text">
       <div class="g-recaptcha" data-sitekey="6LdK7HEUAAAAAKALhtoEihuIPTIm0u_hAmOpr6-B"></div>
       <div class="body__row">
         <button v-on:click="sendNeo()" class="button">
