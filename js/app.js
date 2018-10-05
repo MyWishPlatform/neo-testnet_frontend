@@ -20,6 +20,9 @@ var app = new Vue({
     },
     sendNeo: function() {
       var response = grecaptcha.getResponse();
+      if (!response) {
+        this.errorText = "You didn't pass captcha test.";
+      }
       if (this.isValid && response.length != 0) {
         var request = {
           address: this.key,
@@ -41,6 +44,8 @@ var app = new Vue({
           if (!data.success) {
             self.errorText = this.responses[responseErr];
           } else {
+            self.errorText = false;
+            grecaptcha.reset();
             self.success = true;
           }
         })

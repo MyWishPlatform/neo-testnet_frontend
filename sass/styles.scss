@@ -431,7 +431,7 @@ body {
     border-radius: 6px;
     background-color: #ffffff;
     padding: 10px 20px;
-    color: #8c8c8c;
+    color: rgb(56, 55, 55);
     font-size: 15px;
     font-weight: 400;
     line-height: 31px;
@@ -439,6 +439,18 @@ body {
     margin-bottom: 20px;
     &.invalid {
       border: 1px solid #c41c1c;
+    }
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #8c8c8ca9;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #8c8c8ca9;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: #8c8c8ca9;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #8c8c8ca9;
     }
   }
   .g-recaptcha {
@@ -495,6 +507,7 @@ body {
     align-items: center;
     a {
       color: #000;
+      text-decoration-skip-ink: auto;
     }
     img {
       margin-right: 16px;
@@ -506,12 +519,23 @@ body {
   body {
     background: #f2f2f2;
   }
+
+  .body {
+    &__row {
+      flex-direction: column;
+    }
+    &__info {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
   .container {
     width: 100%;
     max-width: 580px;
     margin: 0 auto;
   }
   .footer {
+    position: relative;
     width: 100%;
     max-width: 600px;
     margin: 0;
@@ -544,13 +568,13 @@ body {
     }
     &__info {
       margin-left: 0;
-      margin-top: 40px;
+      margin-top: 10px;
       width: 100%;
     }
     &__row {
       flex-direction: column;
       align-items: flex-start;
-      margin-bottom: 40px;
+      margin-bottom: 0px;
     }
   }
   .footer {
@@ -575,6 +599,7 @@ body {
 
 @media (max-width: 350px) {
   .g-recaptcha {
+    transform: scale(0.9);
     & > div {
       margin-left: -10px;
       & > div > iframe {
