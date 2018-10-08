@@ -31,7 +31,11 @@ var app = new Vue({
     sendNeo: function() {
       var response = grecaptcha.getResponse();
       if (!response) {
-        this.errorText = "Please complete the captcha to receive assets.";
+        if (this.userLanguage === 'zh') {
+            this.errorText = "請填寫驗證碼以接收資產.";
+        } else {
+            this.errorText = "Please complete the captcha to receive assets.";
+        }
       }
       if (this.isValid && response.length != 0) {
         var request = {
@@ -52,7 +56,11 @@ var app = new Vue({
           self.inputDirty = false;
           var responseErr = data.code;
           if (!data.success) {
-            self.errorText = this.responses[this.userLanguage][responseErr];
+            if (this.userLanguage === 'ch') {
+                self.errorText = this.responses.zh[responseErr];
+            } else {
+                self.errorText = this.responses.en[responseErr];
+            }
           } else {
             self.errorText = false;
             grecaptcha.reset();
