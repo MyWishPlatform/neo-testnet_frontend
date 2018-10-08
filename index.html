@@ -14,58 +14,78 @@
 </head>
 
 <body>
-  <div id="app" class="container">
-    <div class="header">
-      <a href="https://neo.org" target="_blank" class="header__neo">
-        <img src="img/neo.png" alt="">
-      </a>
-      <div class="header__faucet">
-        Faucet
-      </div>
-    </div>
-    <section class="body">
-      <div class="body__desc">
-        Fill the following application form to receive test assets for NEO Testnet.
-      </div>
-      <label class="body__label" for="key">NEO address</label>
-      <input @change="onChange()"
-      v-bind:class="{invalid: !isValid && inputDirty}"
-      v-model="key" class="body__input" placeholder="AP5n91qDhmoNG5S71LMBBmn9C4XcMGZDz"
-      id="key" name="key" type="text">
-      <div class="g-recaptcha" data-sitekey="6LfaH3MUAAAAAGn1HQMHMKn22xxN6_OUt7DwJ0-V"></div>
-      <div class="body__row">
-        <button v-on:click="sendNeo()" class="button">
-          Send me 3000 NEO test assets
-        </button>
-        <div class="body__info">
-            This faucet provides 3000 NEO and 3000 Gas for just one NEO address and one IP address.
+  <div id="app">
+    <div class="container">
+      <div class="header">
+        <a href="https://neo.org" target="_blank" class="header__neo">
+          <img src="img/neo.png" alt="">
+        </a>
+
+        <div class="header__faucet" >
+          <span v-if="userLanguage === 'zh'">水龙头</span>
+          <span v-else>Faucet</span>
         </div>
-        <div v-if="errorText && !inputDirty" class="body__error">{{errorText}}</div>
-        <div v-if="!isValid && inputDirty" class="body__error">Invalid address. Please check your input.</div>
-        <div v-if="success" class="body__success">Assets were successfully sent</div>
-        
       </div>
-    </section>
+      <section class="body">
+        <div class="body__desc">
+          <span v-if="userLanguage === 'zh'">填写以下的申请表来获取NEO测试网的测试币</span>
+          <span v-else>Fill the following application form to receive test assets for NEO Testnet.</span>
+        </div>
+        <label class="body__label" for="key">
+          <span v-if="userLanguage === 'zh'">NEO地址</span>
+          <span v-else>NEO address</span>
+        </label>
+        <input @change="onChange()"
+        v-bind:class="{invalid: !isValid && inputDirty}"
+        v-model="key" class="body__input" placeholder="AP5n91qDhmoNG5S71LMBBmn9C4XcMGZDz"
+        id="key" name="key" type="text" >
+        <div class="g-recaptcha" data-sitekey="6LfaH3MUAAAAAGn1HQMHMKn22xxN6_OUt7DwJ0-V"></div>
+        <div class="body__row">
+          <button v-on:click="sendNeo()" class="button">
+            Send me 3000 NEO test assets
+          </button>
+          <div class="body__info">
+              <span v-if="userLanguage === 'zh'">这个水龙头为一个NEO地址和一个telegram账户提供3000NEO和3000Gas</span>
+              <span v-else>This faucet provides 3000 NEO and 3000 Gas for just one NEO address and one IP address.</span>
+          </div>
+          <div v-if="errorText && !inputDirty" class="body__error">{{errorText}}</div>
+          <div v-if="!isValid && inputDirty" class="body__error">
+            <span v-if="userLanguage === 'zh'">不正确的地址。请再次检查。</span>
+            <span v-else>Invalid address. Please check your input.</span>
+          </div>
+          <div v-if="success" class="body__success">
+            <span v-if="userLanguage === 'zh'">资产已成功发放。</span>
+            <span v-else>Assets were successfully sent.</span>
+          </div>
+
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="footer__mywish">
+        <span v-if="userLanguage === 'zh'">由开发并且提供技术支持</span>
+        <span v-else>Developed & supported by</span>
+        <a href="https://mywish.io" target="_blank">
+          <img src="img/mywish.png" alt="mywish">
+        </a>
+      </div>
+      <div class="footer__tg">
+        <a href="https://t.me/NEO_testnet_faucet_bot" target="_blank">
+            <img src="img/tg.png" alt="telegram" width="40" height="40">
+        </a>
+        <span v-if="userLanguage === 'zh'">
+          <a target="_blank" href="https://t.me/NEO_testnet_faucet_bot">
+            获取我们的telegram</a> 机器人来以更
+            简单的方式获取测试用的gas
+        </span>
+        <span v-else>
+          <a target="_blank" href="https://t.me/NEO_testnet_faucet_bot">
+            get our telegram bot</a> to recieve<br>test
+          gas in more convenient way
+        </span>
+      </div>
+    </footer>
   </div>
-  <footer class="footer">
-    <div class="footer__mywish">
-      <span>
-        Developed & supported by
-      </span>
-      <a href="https://mywish.io" target="_blank">
-        <img src="img/mywish.png" alt="mywish">
-      </a>
-    </div>
-    <div class="footer__tg">
-      <a href="https://t.me/NEO_testnet_faucet_bot" target="_blank">
-          <img src="img/tg.png" alt="telegram" width="40" height="40">
-      </a>
-      <span>
-        <a target="_blank" href="https://t.me/NEO_testnet_faucet_bot">get our telegram bot</a> to recieve test <br>
-        gas in more convenient way
-      </span>
-    </div>
-  </footer>
   <script src="js/validator.js"></script>
   <script src="js/vue.js"></script>
   <script src="js/app.js"></script>

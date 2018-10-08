@@ -496,7 +496,7 @@ body {
   &__mywish {
     display: flex;
     flex-direction: column;
-    span {
+    & > span {
       margin-bottom: 8px;
       font-size: 15px;
     }
