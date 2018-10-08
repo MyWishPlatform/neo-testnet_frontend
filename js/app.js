@@ -29,6 +29,7 @@ var app = new Vue({
       this.success = false;
     },
     sendNeo: function() {
+      self.errorText = false;
       var response = grecaptcha.getResponse();
       if (!response) {
         if (this.userLanguage === 'zh') {
