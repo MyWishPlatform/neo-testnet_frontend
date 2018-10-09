@@ -3,7 +3,7 @@ var responses = {
       601: 'You have exceeded the number of requests allowed in one day. Please try again tomorrow.',
       602: 'You have exceeded the number of requests allowed in one day. Please try again tomorrow.',
       603: 'An internal server error has occurred. Please, try again later.',
-      604: 'An internal server error has occurred. Please, try again later..'
+      604: 'An internal server error has occurred. Please, try again later.'
   },
   zh: {
       601: '你已超出了每天所允许的限额。请明天再来。',
@@ -29,16 +29,11 @@ var app = new Vue({
       this.success = false;
     },
     sendNeo: function() {
-      self.errorText = false;
+      this.errorText = false;
       var response = grecaptcha.getResponse();
-      if (!response) {
-        if (this.userLanguage === 'zh') {
-            this.errorText = "請填寫驗證碼以接收資產.";
-        } else {
-            this.errorText = "Please complete the captcha to receive assets.";
-        }
-      }
+      console.log(response)
       if (this.isValid && response.length != 0) {
+        console.log(this.errorText)
         var request = {
           address: this.key,
           'g-recaptcha-response': response
@@ -68,7 +63,15 @@ var app = new Vue({
             self.success = true;
           }
         })
-      }
+      } else if (!response) {
+            console.log('sss121212')
+            if (this.userLanguage === 'zh') {
+                this.errorText = "請填寫驗證碼以接收資產.";
+            } else {
+
+                this.errorText = "Please complete the captcha to receive assets.";
+            }
+        }
     }
   },
   computed: {
