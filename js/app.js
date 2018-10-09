@@ -27,16 +27,18 @@ var app = new Vue({
     onChange: function () {
       this.inputDirty = true;
       this.success = false;
+      this.errorText = '';
     },
     sendNeo: function() {
+      const self = this;
       this.errorText = false;
+      self.success = false;
       var response = grecaptcha.getResponse();
       if (this.isValid && response.length != 0) {
         var request = {
           address: this.key,
           'g-recaptcha-response': response
         }
-        const self = this;
         fetch('http://neo.mywish.io/api/request/', {
           method: 'post',
           body: JSON.stringify(request),
@@ -61,13 +63,22 @@ var app = new Vue({
             self.success = true;
           }
         })
-      } else if (!response) {
+      }
+      else if (!this.inputDirty && !response) {
+          if (this.userLanguage === 'zh') {
+              this.errorText = "不正确的地址。请再次检查。";
+          } else {
+              this.errorText = "Invalid address. Please check your input.";
+          }
+      }
+      else if (!response) {
             if (this.userLanguage === 'zh') {
                 this.errorText = "请填写验证码以获取测试币.";
             } else {
                 this.errorText = "Please complete the captcha to receive assets.";
             }
-        } else if (this.inputDirty) {
+        } else if (!this.inputDirty) {
+
           if (this.userLanguage === 'zh') {
               this.errorText = "不正确的地址。请再次检查。";
           } else {
