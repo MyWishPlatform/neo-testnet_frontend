@@ -67,7 +67,7 @@ var app = new Vue({
             } else {
                 this.errorText = "Please complete the captcha to receive assets.";
             }
-        } else if (!this.inputDirty) {
+        } else if (this.inputDirty) {
           if (this.userLanguage === 'zh') {
               this.errorText = "不正确的地址。请再次检查。";
           } else {
