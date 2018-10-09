@@ -31,9 +31,7 @@ var app = new Vue({
     sendNeo: function() {
       this.errorText = false;
       var response = grecaptcha.getResponse();
-      console.log(response)
       if (this.isValid && response.length != 0) {
-        console.log(this.errorText)
         var request = {
           address: this.key,
           'g-recaptcha-response': response
@@ -69,7 +67,7 @@ var app = new Vue({
             } else {
                 this.errorText = "Please complete the captcha to receive assets.";
             }
-        } else if (!inputDirty) {
+        } else if (!this.inputDirty) {
           if (this.userLanguage === 'zh') {
               this.errorText = "不正确的地址。请再次检查。";
           } else {
