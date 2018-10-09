@@ -64,14 +64,18 @@ var app = new Vue({
           }
         })
       } else if (!response) {
-            console.log('sss121212')
             if (this.userLanguage === 'zh') {
                 this.errorText = "請填寫驗證碼以接收資產.";
             } else {
-
                 this.errorText = "Please complete the captcha to receive assets.";
             }
-        }
+        } else if (!inputDirty) {
+          if (this.userLanguage === 'zh') {
+              this.errorText = "不正确的地址。请再次检查。";
+          } else {
+              this.errorText = "Invalid address. Please check your input.";
+          }
+      }
     }
   },
   computed: {

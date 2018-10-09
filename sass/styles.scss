@@ -455,6 +455,8 @@ body {
   }
   .g-recaptcha {
     margin-bottom: 25px;
+    max-height: 78px;
+    overflow-y: scroll;
     
   }
   &__row {
