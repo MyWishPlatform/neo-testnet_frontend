@@ -52,7 +52,7 @@
               <span v-else>This faucet provides 3000 NEO and 3000 Gas for just one NEO address and one IP address.</span>
           </div>
           <div v-if="errorText" class="body__error">{{errorText}}</div>
-          <div v-if="!isValid && inputDirty" class="body__error">
+          <div v-if="!isValid && !inputDirty" class="body__error">
             <span v-if="userLanguage === 'zh'">不正确的地址。请再次检查。</span>
             <span v-else>Invalid address. Please check your input.</span>
           </div>
