@@ -63,7 +63,7 @@ var app = new Vue({
         })
       } else if (!response) {
             if (this.userLanguage === 'zh') {
-                this.errorText = "請填寫驗證碼以接收資產.";
+                this.errorText = "请填写验证码以获取测试币.";
             } else {
                 this.errorText = "Please complete the captcha to receive assets.";
             }
