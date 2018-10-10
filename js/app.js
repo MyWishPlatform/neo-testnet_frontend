@@ -31,7 +31,6 @@ var app = new Vue({
     },
     sendNeo: function() {
       const self = this;
-      this.errorText = false;
       self.success = false;
       var response = grecaptcha.getResponse();
       if (this.isValid && response.length != 0) {
@@ -52,6 +51,7 @@ var app = new Vue({
           self.inputDirty = false;
           var responseErr = data.code;
           if (!data.success) {
+          grecaptcha.reset();
             if (this.userLanguage === 'ch') {
                 self.errorText = this.responses.zh[responseErr];
             } else {
