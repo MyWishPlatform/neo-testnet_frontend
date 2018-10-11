@@ -51,15 +51,14 @@ var app = new Vue({
           self.inputDirty = false;
           var responseErr = data.code;
           if (!data.success) {
-          grecaptcha.reset();
-            if (this.userLanguage === 'ch') {
+            grecaptcha.reset();
+            if (this.userLanguage === 'zh') {
                 self.errorText = this.responses.zh[responseErr];
             } else {
                 self.errorText = this.responses.en[responseErr];
             }
           } else {
             self.errorText = false;
-            grecaptcha.reset();
             self.success = true;
           }
         })
@@ -73,7 +72,7 @@ var app = new Vue({
       }
       else if (!response) {
             if (this.userLanguage === 'zh') {
-                this.errorText = "请填写验证码以获取测试币.";
+                this.errorText = "请填写验证码以获取测试币。";
             } else {
                 this.errorText = "Please complete the captcha to receive assets.";
             }

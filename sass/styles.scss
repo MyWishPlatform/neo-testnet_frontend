@@ -456,13 +456,11 @@ body {
   .g-recaptcha {
     margin-bottom: 25px;
     max-height: 78px;
-    overflow-y: scroll;
-    
   }
   &__row {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 10px;
     position: relative;
     padding-bottom: 30px;
@@ -524,6 +522,7 @@ body {
   .body {
     &__row {
       flex-direction: column;
+      align-items: flex-start;
     }
     &__info {
       margin-left: 0;
