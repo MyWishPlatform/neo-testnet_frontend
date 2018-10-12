@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b53d1ab-7285-48b9-ac80-77c15e84b7fb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sass/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/styles.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,14 +43,14 @@
         <counts>
           <entry key="gitignore" value="13" />
           <entry key="html" value="434" />
-          <entry key="js" value="882" />
+          <entry key="js" value="897" />
           <entry key="scss" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="434" />
-          <entry key="JavaScript" value="882" />
+          <entry key="JavaScript" value="897" />
           <entry key="PLAIN_TEXT" value="13" />
           <entry key="SCSS" value="33" />
         </counts>
@@ -94,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-234">
-              <caret line="16" column="73" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
+            <state relative-caret-position="225">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -128,6 +125,7 @@
       <find>send</find>
       <find>captc</find>
       <find>601</find>
+      <find>.reset</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -242,12 +240,12 @@
       <workItem from="1539186111152" duration="954000" />
       <workItem from="1539246901461" duration="1190000" />
       <workItem from="1539278800436" duration="417000" />
-      <workItem from="1539280025816" duration="416000" />
+      <workItem from="1539280025816" duration="947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28934000" />
+    <option name="totallyTimeSpent" value="29465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -323,8 +321,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
-          <caret line="16" column="73" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
+        <state relative-caret-position="225">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
