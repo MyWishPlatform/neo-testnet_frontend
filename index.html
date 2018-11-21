@@ -118,7 +118,8 @@
           <li>
             Network status monitor for NEO: <a target="_blank" href="http://neomonitor.mywish.io/">http://neomonitor.mywish.io/</a><br/>
           </li>
-        </ul>
+        </ul><br/><br/>
+        <button class="button" v-on:click="closeInstruction()"><span>Close instruction</span></button>
       </section>
       <section class="body" v-else>
         <div class="body__desc">
@@ -152,13 +153,12 @@
             <span v-if="userLanguage === 'zh'">资产已成功发放。</span>
             <span v-else>Assets were successfully sent.</span>
           </div>
-
         </div>
+        <a href="#"
+           class="instruction-open-link"
+           v-on:click="openInstruction()">Read our instructions how to get client for NEO Testnet by MyWish</a><br/><br/>
       </section>
 
-      <a href="#"
-         class="instruction-open-link"
-         v-on:click="openInstruction()">Instruction</a><br/><br/>
     </div>
     <footer class="footer">
       <div class="footer__mywish">

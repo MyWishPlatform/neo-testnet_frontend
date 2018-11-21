@@ -30,8 +30,11 @@ var app = new Vue({
       this.success = false;
       this.errorText = '';
     },
+    closeInstruction: function() {
+      this.openedInstruction = false;
+    },
     openInstruction: function() {
-        this.openedInstruction = !this.openedInstruction;
+        this.openedInstruction = true;
     },
     sendNeo: function() {
       const self = this;
