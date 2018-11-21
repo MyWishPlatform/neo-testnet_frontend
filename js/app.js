@@ -19,6 +19,7 @@ var app = new Vue({
   data: {
     key: '',
     inputDirty: false,
+    openedInstruction:  false,
     success: false,
     errorText: '',
     userLanguage: (navigator.language||navigator.browserLanguage).split('-')[0]
@@ -28,6 +29,9 @@ var app = new Vue({
       this.inputDirty = true;
       this.success = false;
       this.errorText = '';
+    },
+    openInstruction: function() {
+        this.openedInstruction = !this.openedInstruction;
     },
     sendNeo: function() {
       const self = this;

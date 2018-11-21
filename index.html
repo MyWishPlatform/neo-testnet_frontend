@@ -28,7 +28,99 @@
           <span v-else>Faucet</span>
         </div>
       </div>
-      <section class="body">
+
+
+      <section class="instruction-section" v-if="openedInstruction">
+        <p>In order to connect to our new recently launched test network, you will need to simply do these steps:</p>
+        <ul class="instruction-section__first-list">
+          <li>
+            <p>
+              Download latest release of official NEO client, such as NEO-CLI, NEO-GUI or CoZ NEO-PYTHON.<br/>
+              There are links for them all:
+            </p>
+            <ul class="instruction-section__just-list">
+              <li>
+                neo-cli: <a href="https://github.com/neo-project/neo-cli/releases" target="_blank">https://github.com/neo-project/neo-cli/releases</a>
+              </li>
+              <li>
+                neo-gui: <a href="https://github.com/neo-project/neo-gui/releases" target="_blank">https://github.com/neo-project/neo-gui/releases</a>
+              </li>
+              <li>
+                neo-python: <a href="https://github.com/CityOfZion/neo-python" target="_blank">https://github.com/CityOfZion/neo-python</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              Extract downloaded archive to navigate to directory. In this folder you will find files named “config.json” and “protocol.json”, and some other with similar names.
+            </p>
+            <div class="text-center instruction-img-container">
+              <img src="/img/1.png">
+              <img src="/img/2.png">
+            </div>
+            <p>
+              <b>Note:</b> For neo-python, navigate from root directory of neo-python to folder neo/data as shown, you will find neccesary files here.
+            </p>
+            <div class="text-center instruction-img-container">
+              <img src="/img/3.png">
+            </div>
+          </li>
+          <li>
+            <p>
+              Copy or rename these files for backup, and download configuration files for new testnet:
+            </p>
+            <ol class="instruction-section__second-list">
+              <li>
+                Config file for neo-cli and neo-gui:<br/>
+                <a href="https://gist.github.com/ephdtrg/d7caf3c91904fea795234331f04429ea#file-config-mywish-testnet-json" target="_blank">
+                  https://gist.github.com/ephdtrg/d7caf3c91904fea795234331f04429ea#file-config-mywish-testnet-json
+                </a>
+              </li>
+              <li>
+                Protocol file for neo-cli and neo-gui:<br/>
+                <a href="https://gist.github.com/ephdtrg/d7caf3c91904fea795234331f04429ea#file-protocol-mywish-testnet-json" target="_blank">
+                  https://gist.github.com/ephdtrg/d7caf3c91904fea795234331f04429ea#file-protocol-mywish-testnet-json
+                </a>
+              </li>
+              <li>
+                Unified config and protocol file for neo-python:
+                <a href="https://gist.github.com/ephdtrg/d7caf3c91904fea795234331f04429ea#file-protocol-mywish-testnet-json" target="_blank">
+                  https://gist.github.com/ephdtrg/d7caf3c91904fea795234331f04429ea#file-protocol-mywish-testnet-json
+                </a>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>
+              Move downloaded config files to folder and rename “config.mywish-testnet.json” to “config.json” and “protocol.mywish-testnet.json” to “protocol.json”. For neo-python, rename “protocol.neopython-mywish-testnet.json” to “protocol.testnet.json”
+            </p>
+            <p>
+              <b>Note:</b> If you already using neo client and want to switch to new testnet, backup your blockhain database files, move them to another directory and replace configuration files.
+            </p>
+          </li>
+          <li>
+            <p>
+              After this, just launch your client and it will be automatically connected to MyWish Testnet. Wait some time for full synchronization and you’re good to go.
+            </p>
+          </li>
+        </ul>
+        <br/>
+        <p>
+          This new testnet also have additional services, that will help to work with blockchain:
+        </p>
+        <ul>
+          <li>
+            Faucet service for NEO: <a target="_blank" href="http://neo.mywish.io/">http://neo.mywish.io/</a>
+          </li>
+          <li>
+            Blockchain explorer for NEO: <a target="_blank" href="http://neoscan.mywish.io">http://neoscan.mywish.io/</a>
+          </li>
+          <li>
+            Network status monitor for NEO: <a target="_blank" href="http://neomonitor.mywish.io/">http://neomonitor.mywish.io/</a><br/>
+          </li>
+        </ul>
+      </section>
+      <section class="body" v-else>
         <div class="body__desc">
           <span v-if="userLanguage === 'zh'">填写以下的申请表来获取NEO测试网的测试币</span>
           <span v-else>Fill the following application form to receive test assets for NEO Testnet.</span>
@@ -63,6 +155,10 @@
 
         </div>
       </section>
+
+      <a href="#"
+         class="instruction-open-link"
+         v-on:click="openInstruction()">Instruction</a><br/><br/>
     </div>
     <footer class="footer">
       <div class="footer__mywish">
