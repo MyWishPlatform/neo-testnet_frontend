@@ -142,7 +142,7 @@
           </button>
           <div class="body__info">
               <span v-if="userLanguage === 'zh'">这个水龙头为一个NEO地址和一个telegram账户提供1000NEO和1000Gas</span>
-              <span v-else>This faucet provides 1000 NEO and 1000 Gas for just one NEO address and one IP address.</span>
+              <span v-else> The faucet provides 1000 NEO and 1000 Gas for one NEO address and one IP address every 24 hours</span>
           </div>
           <div v-if="errorText" class="body__error">{{errorText}}</div>
           <div v-if="!isValid && inputDirty" class="body__error">
@@ -156,7 +156,7 @@
         </div>
         <a href="#"
            class="instruction-open-link"
-           v-on:click="openInstruction()">Read our instructions how to get client for NEO Testnet by MyWish</a><br/><br/>
+           v-on:click="openInstruction()">Instructions for setup of NEO MyWish Testnet client</a><br/><br/>
       </section>
 
     </div>
@@ -179,7 +179,7 @@
         </span>
         <span v-else>
           <a target="_blank" href="https://t.me/NEO_testnet_faucet_bot">
-            get our telegram bot</a> to recieve<br>test
+            get our telegram bot</a> to receive<br>test
           gas in more convenient way
         </span>
       </div>
