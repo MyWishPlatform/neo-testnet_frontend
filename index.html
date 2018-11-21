@@ -30,7 +30,7 @@
       </div>
 
 
-      <section class="instruction-section" v-if="openedInstruction">
+      <section class="instruction-section" v-show="openedInstruction">
         <p>In order to connect to our new recently launched test network, you will need to simply do these steps:</p>
         <ul class="instruction-section__first-list">
           <li>
@@ -121,7 +121,7 @@
         </ul><br/><br/>
         <button class="button" v-on:click="closeInstruction()"><span>Close instruction</span></button>
       </section>
-      <section class="body" v-else>
+      <section class="body"  v-show="!openedInstruction">
         <div class="body__desc">
           <span v-if="userLanguage === 'zh'">填写以下的申请表来获取NEO测试网的测试币</span>
           <span v-else>Fill the following application form to receive test assets for NEO Testnet.</span>
@@ -137,12 +137,12 @@
         <div class="g-recaptcha" data-sitekey="6LfaH3MUAAAAAGn1HQMHMKn22xxN6_OUt7DwJ0-V"></div>
         <div class="body__row">
           <button v-on:click="sendNeo()" class="button">
-            <span v-if="userLanguage === 'zh'"> 发给我3000个NEO测试币</span>
-            <span v-else>Send me 3000 NEO test assets</span>
+            <span v-if="userLanguage === 'zh'"> 发给我1000个NEO测试币</span>
+            <span v-else>Send me 1000 NEO test assets</span>
           </button>
           <div class="body__info">
-              <span v-if="userLanguage === 'zh'">这个水龙头为一个NEO地址和一个telegram账户提供3000NEO和3000Gas</span>
-              <span v-else>This faucet provides 3000 NEO and 3000 Gas for just one NEO address and one IP address.</span>
+              <span v-if="userLanguage === 'zh'">这个水龙头为一个NEO地址和一个telegram账户提供1000NEO和1000Gas</span>
+              <span v-else>This faucet provides 1000 NEO and 1000 Gas for just one NEO address and one IP address.</span>
           </div>
           <div v-if="errorText" class="body__error">{{errorText}}</div>
           <div v-if="!isValid && inputDirty" class="body__error">
