@@ -136,14 +136,16 @@
         id="key" name="key" type="text" >
         <div class="g-recaptcha" data-sitekey="6LfaH3MUAAAAAGn1HQMHMKn22xxN6_OUt7DwJ0-V"></div>
         <div class="body__row">
-          <button v-on:click="sendNeo()" class="button">
+          <button v-on:click="sendNeo('NEO')" class="button">
             <span v-if="userLanguage === 'zh'"> 发给我1000个NEO测试币</span>
             <span v-else>Send me 1000 NEO test assets</span>
+          </button>&nbsp;&nbsp;&nbsp;
+          <button v-on:click="sendNeo('GAS')" class="button">
+            <span v-if="userLanguage === 'zh'"> 发给我1000个Gas测试币</span>
+            <span v-else>Send me 1000 Gas test assets</span>
           </button>
-          <div class="body__info">
-              <span v-if="userLanguage === 'zh'">这个水龙头为一个NEO地址和一个telegram账户提供1000NEO和1000Gas</span>
-              <span v-else> The faucet provides 1000 NEO and 1000 Gas for one NEO address and one IP address every 24 hours</span>
-          </div>
+        </div>
+        <div>
           <div v-if="errorText" class="body__error">{{errorText}}</div>
           <div v-if="!isValid && inputDirty" class="body__error">
             <span v-if="userLanguage === 'zh'">不正确的地址。请再次检查。</span>
@@ -152,6 +154,11 @@
           <div v-if="success" class="body__success">
             <span v-if="userLanguage === 'zh'">资产已成功发放。</span>
             <span v-else>Assets were successfully sent.</span>
+          </div>
+
+          <div class="body__info">
+              <span v-if="userLanguage === 'zh'">这个水龙头为一个NEO地址和一个telegram账户提供1000NEO和1000Gas</span>
+              <span v-else> The faucet provides 1000 NEO and 1000 Gas for one NEO address and one IP address every 24 hours</span>
           </div>
         </div>
         <a href="#"

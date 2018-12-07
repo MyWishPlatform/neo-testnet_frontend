@@ -36,15 +36,16 @@ var app = new Vue({
     openInstruction: function() {
         this.openedInstruction = true;
     },
-    sendNeo: function() {
+    sendNeo: function(currency) {
       const self = this;
       self.success = false;
       var response = grecaptcha.getResponse();
       if (this.isValid && response.length != 0) {
         var request = {
           address: this.key,
-          'g-recaptcha-response': response
-        }
+          'g-recaptcha-response': response,
+          'asset': currency
+        };
         fetch('http://neo.mywish.io/api/request/', {
           method: 'post',
           body: JSON.stringify(request),
