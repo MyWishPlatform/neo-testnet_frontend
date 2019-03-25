@@ -46,7 +46,7 @@ var app = new Vue({
           'g-recaptcha-response': response,
           'asset': currency
         };
-        fetch('http://neo.mywish.io/api/request/', {
+        fetch('/api/request/', {
           method: 'post',
           body: JSON.stringify(request),
           headers: {
