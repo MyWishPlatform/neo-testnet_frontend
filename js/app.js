@@ -22,13 +22,19 @@ var app = new Vue({
     openedInstruction:  false,
     success: false,
     errorText: '',
-    userLanguage: (navigator.language||navigator.browserLanguage).split('-')[0]
+    userLanguage: sessionStorage.getItem("lan")||(navigator.language||navigator.browserLanguage).split('-')[0]
   },
   methods: {
     onChange: function () {
       this.inputDirty = true;
       this.success = false;
       this.errorText = '';
+    },
+    changeLanguage: function(){
+      var _lan = sessionStorage.getItem("lan")||(navigator.language||navigator.browserLanguage).split('-')[0];
+      _lan ==="zh"? _lan = "en":_lan = "zh";
+      sessionStorage.setItem("lan",_lan);
+      this.userLanguage = _lan;
     },
     closeInstruction: function() {
       this.openedInstruction = false;
