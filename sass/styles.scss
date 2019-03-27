@@ -372,17 +372,18 @@ body {
 }
 
 .button {
-  padding: 9px 20px;
+  padding: 6px 12px;
   color: #ffffff;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 31px;
   border-radius: 6px;
-  background-color: #40bb00;
+  background-color: #50AC02;
   border: none;
   cursor: pointer;
   transition: all 0.1s ease;
   font-variant-ligatures: none;
+  width: 250px;
   &:hover {
     background-color: #3dad00;
   }
@@ -394,8 +395,11 @@ body {
   margin-bottom: 62px;
   &__neo {
     display: block;
-    width: 150px;
+    width: 105px;
     margin: 43px 62px 0 10px;
+    img {
+      width: 100%;
+    }
   }
   &__lang {
     color: #FFFFFF;
@@ -412,15 +416,15 @@ body {
   display: flex;
   flex-direction: column;
   &__desc {
-    width: 411px;
+    width: 520px;
     color: #4d4d4d;
     font-size: 20px;
     font-weight: 400;
     line-height: 31px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
   }
   &__label {
-    color: #8c8c8c;
+    color: #222222;
     font-size: 15px;
     font-weight: 400;
     line-height: 22px;
@@ -428,16 +432,17 @@ body {
   }
   &__input {
     font-variant-ligatures: none;
-    width: 369px;
+    width: 400px;
     border-radius: 6px;
     background-color: #ffffff;
-    padding: 10px 20px;
+    padding: 6px 12px;
     color: rgb(56, 55, 55);
     font-size: 15px;
     font-weight: 400;
     line-height: 31px;
-    border: none;
-    margin-bottom: 20px;
+    border: 1px solid #50AC02;
+    margin-bottom: 10px;
+    font-style: italic;
     &.invalid {
       border: 1px solid #c41c1c;
     }
@@ -455,25 +460,26 @@ body {
     }
   }
   .g-recaptcha {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     max-height: 78px;
+  }
+  .g-recaptcha-hint{
+    margin-bottom: 40px;
   }
   &__row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 10px;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   &__info {
-    width: 315px;
-    //height: 44px;
+    width: 100%;
+    max-width: 520px;
     color: #8c8c8c;
     font-size: 15px;
     font-weight: 400;
     line-height: 22px;
-    //margin-left: 33px;
     margin-bottom: 20px;
   }
   &__success, &__error {
@@ -499,6 +505,9 @@ body {
     & > span {
       margin-bottom: 8px;
       font-size: 15px;
+    }
+    img{
+      width: 115px;
     }
     margin-right: 126px;
   }
