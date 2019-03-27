@@ -395,15 +395,16 @@ body {
   &__neo {
     display: block;
     width: 150px;
-    margin: 43px 62px 17px 10px;
+    margin: 43px 62px 0 10px;
   }
-  &__faucet {
-    color: #4d4d4d;
-    font-size: 35px;
-    font-weight: 400;
-    background-color: #fff;
-    padding: 74px 23px 25px 20px;
-    border-radius: 0 0 15px 15px;
+  &__lang {
+    color: #FFFFFF;
+    background-color: #9B9B9B;
+    font-size: 16px;
+    padding:5px 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
   }
 }
 

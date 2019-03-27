@@ -16,22 +16,14 @@
 </head>
 
 <body>
-
   <div id="app">
-    <a href="" @click="changeLanguage();">语言切换</a>
-
     <div class="container">
       <div class="header">
         <a href="https://neo.org" target="_blank" class="header__neo">
           <img src="img/neo.png" alt="">
         </a>
-
-        <div class="header__faucet" >
-          <span v-if="userLanguage === 'zh'">水龙头</span>
-          <span v-else>Faucet</span>
-        </div>
+        <a class="header__lang" @click="changeLanguage();">中 / EN</a>
       </div>
-
 
       <section class="instruction-section" v-show="openedInstruction">
         <p>In order to connect to our new recently launched test network, you will need to simply do these steps:</p>
@@ -158,17 +150,12 @@
             <span v-if="userLanguage === 'zh'">资产已成功发放。</span>
             <span v-else>Assets were successfully sent.</span>
           </div>
-
           <div class="body__info">
-              <span v-if="userLanguage === 'zh'">这个水龙头为一个NEO地址和一个telegram账户提供测试网上1000NEO和1000Gas</span>
-              <span v-else> The faucet provides 1000 NEO and 1000 Gas from testnet for one NEO address and one IP address every 24 hours</span>
+              <span v-if="userLanguage === 'zh'">每个用户每日可以通过该页面自动申请测试网 1000个NEO 和 1000个GAS。<br /><small>该功能需要通过google进行验证</small></span>
+              <span v-else> This page can provides 1000 NEO and 1000 Gas from testnet for one NEO address and one IP address every 24 hours</span>
           </div>
         </div>
-        <!-- <a href="#"
-           class="instruction-open-link"
-           v-on:click="openInstruction()">Instructions for setup of NEO MyWish Testnet client</a><br/><br/> -->
       </section>
-
     </div>
     <footer class="footer">
       <div class="footer__mywish">
