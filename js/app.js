@@ -24,6 +24,10 @@ var app = new Vue({
     errorText: '',
     userLanguage: sessionStorage.getItem("lan")||(navigator.language||navigator.browserLanguage).split('-')[0]
   },
+  mounted:function () {
+      var _lan = sessionStorage.getItem("lan")||(navigator.language||navigator.browserLanguage).split('-')[0];
+      sessionStorage.setItem("lan",_lan);
+  },
   methods: {
     onChange: function () {
       this.inputDirty = true;
@@ -64,12 +68,10 @@ var app = new Vue({
           self.key = '';
           self.inputDirty = false;
           var responseErr = data.code;
+          var _lan = sessionStorage.getItem("lan");
           if (!data.success) {
             grecaptcha.reset();
-            console.log(this);
-            console.log(this.data);
-            console.log(data);
-            if (this.userLanguage === 'zh') {
+            if (_lan === 'zh') {
                 self.errorText = this.responses.zh[responseErr];
             } else {
                 self.errorText = this.responses.en[responseErr];
@@ -81,8 +83,6 @@ var app = new Vue({
         })
       }
       else if (!this.inputDirty && !response) {
-          console.log(1);
-          console.log(this);
           if (this.userLanguage === 'zh') {
               this.errorText = "不正确的地址。请再次检查。";
           } else {
@@ -90,16 +90,12 @@ var app = new Vue({
           }
       }
       else if (!response) {
-          console.log(2);
-          console.log(this);
             if (this.userLanguage === 'zh') {
                 this.errorText = "请填写验证码以获取测试币。";
             } else {
                 this.errorText = "Please complete the captcha to receive assets.";
             }
         } else if (!this.inputDirty) {
-          console.log(3);
-          console.log(this);
           if (this.userLanguage === 'zh') {
               this.errorText = "不正确的地址。请再次检查。";
           } else {
