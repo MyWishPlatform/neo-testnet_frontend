@@ -66,7 +66,7 @@ var app = new Vue({
           var responseErr = data.code;
           if (!data.success) {
             grecaptcha.reset();
-            if (this.userLanguage === 'zh') {
+            if (this.data.userLanguage === 'zh') {
                 self.errorText = this.responses.zh[responseErr];
             } else {
                 self.errorText = this.responses.en[responseErr];
@@ -78,6 +78,8 @@ var app = new Vue({
         })
       }
       else if (!this.inputDirty && !response) {
+          console.log(1);
+          console.log(this);
           if (this.userLanguage === 'zh') {
               this.errorText = "不正确的地址。请再次检查。";
           } else {
@@ -85,13 +87,16 @@ var app = new Vue({
           }
       }
       else if (!response) {
+          console.log(2);
+          console.log(this);
             if (this.userLanguage === 'zh') {
                 this.errorText = "请填写验证码以获取测试币。";
             } else {
                 this.errorText = "Please complete the captcha to receive assets.";
             }
         } else if (!this.inputDirty) {
-
+          console.log(3);
+          console.log(this);
           if (this.userLanguage === 'zh') {
               this.errorText = "不正确的地址。请再次检查。";
           } else {
