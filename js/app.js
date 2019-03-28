@@ -66,7 +66,7 @@ var app = new Vue({
           var responseErr = data.code;
           if (!data.success) {
             grecaptcha.reset();
-            if (this.data.userLanguage === 'zh') {
+            if (this._data.userLanguage === 'zh') {
                 self.errorText = this.responses.zh[responseErr];
             } else {
                 self.errorText = this.responses.en[responseErr];
