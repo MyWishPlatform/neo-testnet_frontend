@@ -131,6 +131,7 @@
         id="key" name="key" type="text" >
         <div class="g-recaptcha" data-sitekey="6LfNuZkUAAAAAHZpTqjqB46Z_m70tD-AnY0C44a7"></div>
         <small v-if="userLanguage === 'zh'" class="g-recaptcha-hint">该功能需要通过google进行验证</small>
+        <small v-else class="g-recaptcha-hint">This feature needs to be verified by Google</small>
         <div class="body__row">
           <button v-on:click="sendNeo('NEO')" class="button">
             <span v-if="userLanguage === 'zh'"> 发给我1000个NEO测试币</span>
@@ -187,5 +188,4 @@
   <script src="js/validator.js"></script>
   <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
-
 </html>
