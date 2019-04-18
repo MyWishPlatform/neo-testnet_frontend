@@ -57,7 +57,7 @@ var app = new Vue({
           'g-recaptcha-response': response,
           'asset': currency
         };
-        fetch('/api/request/', {
+        fetch('/api/request', {
           method: 'post',
           body: JSON.stringify(request),
           headers: {
