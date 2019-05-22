@@ -61,8 +61,8 @@ var app = new Vue({
             },
         }).then(function (res) {
             return res.json();
-        }).then(function (res) {
-            if(!res.success){console.log('未登录')}
+        }).then(function (data) {
+            if(!data.success){window.location.href = data.msg;}
             else {console.log('已登录')}
         })
     },
