@@ -22,6 +22,8 @@
         <a href="https://neo.org" target="_blank" class="header__neo">
           <img src="img/neo.png" alt="">
         </a>
+        <a v-if="userLanguage === 'zh'" class="header__login" @click="getGit();">登陆</a>&nbsp;&nbsp;
+        <a v-else class="header__login" @click="getGit();">Login</a>&nbsp;&nbsp;
         <a class="header__lang" @click="changeLanguage();">中 / EN</a>
       </div>
 
