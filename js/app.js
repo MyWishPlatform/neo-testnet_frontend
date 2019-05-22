@@ -43,7 +43,7 @@ var app = new Vue({
       this.userLanguage = _lan;
     },
     getGit:function () {
-        fetch("http://47.251.4.77/api/login-user",{
+        fetch("/api/login-user",{
           method: 'get',
           headers: {
             "Content-Type": "application/json"
@@ -55,17 +55,6 @@ var app = new Vue({
           else {console.log('已登录')}
         });
         fetch("/api/login-user",{
-            method: 'get',
-            headers: {
-                "Content-Type": "application/json"
-            },
-        }).then(function (res) {
-            return res.json();
-        }).then(function (res) {
-            if(!res.success){console.log('未登录')}
-            else {console.log('已登录')}
-        })
-        fetch("api/login-user",{
             method: 'get',
             headers: {
                 "Content-Type": "application/json"
