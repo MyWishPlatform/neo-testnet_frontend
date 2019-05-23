@@ -28,7 +28,6 @@ var app = new Vue({
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
     sessionStorage.setItem("lan", _lan);
-    this.getGit();
   },
   methods: {
     onChange: function () {
@@ -44,17 +43,6 @@ var app = new Vue({
     },
     getGit:function () {
         fetch("/api/login-user",{
-          method: 'get',
-          headers: {
-            "Content-Type": "application/json"
-          },
-        }).then(function (res) {
-            return res.json();
-        }).then(function (res) {
-          if(!res.success){console.log('未登录')}
-          else {console.log('已登录')}
-        });
-        fetch("/api/login-user",{
             method: 'get',
             headers: {
                 "Content-Type": "application/json"
@@ -63,7 +51,7 @@ var app = new Vue({
             return res.json();
         }).then(function (data) {
             if(!data.success){window.location.href = data.msg;}
-            else {console.log('已登录')}
+            else {return data.data.name;}
         })
     },
     closeInstruction: function () {
@@ -91,7 +79,6 @@ var app = new Vue({
         }).then(function (res) {
           return res.json();
         }).then(function (data) {
-          console.log(data);
           self.key = '';
           self.inputDirty = false;
           var responseErr = data.code;
