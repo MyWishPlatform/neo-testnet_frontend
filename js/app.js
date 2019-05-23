@@ -23,11 +23,13 @@ var app = new Vue({
     openedInstruction: false,
     success: false,
     errorText: '',
-    userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0]
+    userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0],
+    login:false
   },
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
     sessionStorage.setItem("lan", _lan);
+    this.getGit();
   },
   methods: {
     onChange: function () {
@@ -50,8 +52,7 @@ var app = new Vue({
         }).then(function (res) {
             return res.json();
         }).then(function (data) {
-            if(!data.success){window.location.href = data.msg;}
-            else {return data.data.name;}
+            if(data.success){this.login=true;}
         })
     },
     closeInstruction: function () {
@@ -63,6 +64,7 @@ var app = new Vue({
     sendNeo: function (currency) {
       const self = this;
       self.success = false;
+      if (!this.login){this.getGit();}
       var response = grecaptcha.getResponse();
       if (this.isValid && response.length != 0) {
         var request = {
