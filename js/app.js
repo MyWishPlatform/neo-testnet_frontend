@@ -29,7 +29,6 @@ var app = new Vue({
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
     sessionStorage.setItem("lan", _lan);
-    this.getGit();
   },
   methods: {
     onChange: function () {
@@ -44,7 +43,7 @@ var app = new Vue({
       this.userLanguage = _lan;
     },
     getGit:function () {
-        fetch("http://47.251.4.77/api/login-user",{
+        fetch("/api/login-user",{
             method: 'get',
             headers: {
                 "Content-Type": "application/json"
@@ -52,18 +51,13 @@ var app = new Vue({
         }).then(function (res) {
             return res.json();
         }).then(function (data) {
-            if(data.success){this.github=true;
-                document.getElementById('gitBtn').checked = true;
-            } else {this.github=false;}
+            if(data.success){this.github=true;}
         })
     },
     checkGit: function (){
       this.getGit();
-      if(!this.github){
-        window.location.href = '/api/login';
-      }else {
-        document.getElementById('gitBtn').checked = true;
-      }
+      if(!this.github){window.location.href = '/api/login';
+      }else {document.getElementById('gitBtn').checked = true;}
     },
     closeInstruction: function () {
       this.openedInstruction = false;
