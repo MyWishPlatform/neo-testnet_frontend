@@ -24,7 +24,7 @@ var app = new Vue({
     success: false,
     errorText: '',
     userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0],
-    login:false
+    github:false
   },
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
@@ -44,7 +44,7 @@ var app = new Vue({
       this.userLanguage = _lan;
     },
     getGit:function () {
-        fetch("/api/login-user",{
+        fetch("http://47.251.4.77/api/login-user",{
             method: 'get',
             headers: {
                 "Content-Type": "application/json"
@@ -52,8 +52,18 @@ var app = new Vue({
         }).then(function (res) {
             return res.json();
         }).then(function (data) {
-            if(data.success){this.login=true;}
+            if(data.success){this.github=true;
+                document.getElementById('gitBtn').checked = true;
+            } else {this.github=false;}
         })
+    },
+    checkGit: function (){
+      this.getGit();
+      if(!this.github){
+        window.location.href = '/api/login';
+      }else {
+        document.getElementById('gitBtn').checked = true;
+      }
     },
     closeInstruction: function () {
       this.openedInstruction = false;
@@ -64,9 +74,9 @@ var app = new Vue({
     sendNeo: function (currency) {
       const self = this;
       self.success = false;
-      if (!this.login){this.getGit();}
+
       var response = grecaptcha.getResponse();
-      if (this.isValid && response.length != 0) {
+      if (this.isValid && response.length != 0 && this.github) {
         var request = {
           address: this.key,
           'g-recaptcha-response': response,
@@ -119,6 +129,12 @@ var app = new Vue({
           this.errorText = "不正确的地址。请再次检查。";
         } else {
           this.errorText = "Invalid address. Please check your input.";
+        }
+      }else if(!this.github){
+        if (this.userLanguage === 'zh') {
+            this.errorText = "请添加github验证";
+        } else {
+            this.errorText = "Please complete GitHub to receive assets.";
         }
       }
     }
