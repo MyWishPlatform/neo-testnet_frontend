@@ -26,12 +26,10 @@ var app = new Vue({
     userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0],
     github:false
   },
-  create:function(){
-    this.getGit();
-  },
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
     sessionStorage.setItem("lan", _lan);
+    this.checkGit();
   },
   methods: {
     onChange: function () {
@@ -55,12 +53,21 @@ var app = new Vue({
             return res.json();
         }).then(function (data) {
             if(data.success){this.github=true;}
+            else {window.location.href = data.msg;}
         })
     },
     checkGit: function (){
-      this.getGit();
-      if(!this.github){window.location.href = '/api/login';
-      }else {document.getElementById('gitBtn').checked = true;}
+      fetch("/api/login-user",{
+          method: 'get',
+          headers: {
+              "Content-Type": "application/json"
+          },
+      }).then(function (res) {
+          return res.json();
+      }).then(function (data) {
+          if(data.success){this.github=true;}
+          else {this.github=false;}
+      })
     },
     closeInstruction: function () {
       this.openedInstruction = false;
