@@ -26,10 +26,12 @@ var app = new Vue({
     userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0],
     github:false
   },
+  create:function(){
+    this.getGit();
+  },
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
     sessionStorage.setItem("lan", _lan);
-    this.getGit();
   },
   methods: {
     onChange: function () {
