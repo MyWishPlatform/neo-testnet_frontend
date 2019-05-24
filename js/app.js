@@ -53,6 +53,7 @@ var app = new Vue({
         }).then(function (data) {
             if(data.success){this.github=true;}
         })
+        this.getGit();
     },
     checkGit: function (){
       this.getGit();
