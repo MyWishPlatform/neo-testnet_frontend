@@ -29,6 +29,7 @@ var app = new Vue({
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
     sessionStorage.setItem("lan", _lan);
+    this.getGit();
   },
   methods: {
     onChange: function () {
@@ -53,7 +54,6 @@ var app = new Vue({
         }).then(function (data) {
             if(data.success){this.github=true;}
         })
-        this.getGit();
     },
     checkGit: function (){
       this.getGit();
