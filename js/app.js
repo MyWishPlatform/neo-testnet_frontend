@@ -15,6 +15,43 @@ var responses = {
   }
 };
 
+var gitdata ={
+    "success": true,
+    "data": {
+        "avatar_url": "https://avatars1.githubusercontent.com/u/7391819?v=4",
+        "bio": null,
+        "blog": "",
+        "company": null,
+        "created_at": "2014-04-24T05:51:12Z",
+        "email": "bfshm@qq.com",
+        "events_url": "https://api.github.com/users/Ashuaidehao/events{/privacy}",
+        "followers": 0,
+        "followers_url": "https://api.github.com/users/Ashuaidehao/followers",
+        "following": 0,
+        "following_url": "https://api.github.com/users/Ashuaidehao/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Ashuaidehao/gists{/gist_id}",
+        "gravatar_id": "",
+        "hireable": null,
+        "html_url": "https://github.com/Ashuaidehao",
+        "id": 7391819,
+        "location": null,
+        "login": "Ashuaidehao",
+        "name": "Shine Li",
+        "node_id": "MDQ6VXNlcjczOTE4MTk=",
+        "organizations_url": "https://api.github.com/users/Ashuaidehao/orgs",
+        "public_gists": 0,
+        "public_repos": 32,
+        "received_events_url": "https://api.github.com/users/Ashuaidehao/received_events",
+        "repos_url": "https://api.github.com/users/Ashuaidehao/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/Ashuaidehao/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Ashuaidehao/subscriptions",
+        "type": "User",
+        "updated_at": "2019-04-11T06:28:14Z",
+        "url": "https://api.github.com/users/Ashuaidehao"
+    }
+}
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -29,7 +66,7 @@ var app = new Vue({
   mounted: function () {
     var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
     sessionStorage.setItem("lan", _lan);
-    this.checkGit();
+    this.getGit();
   },
   methods: {
     onChange: function () {
@@ -52,22 +89,14 @@ var app = new Vue({
         }).then(function (res) {
             return res.json();
         }).then(function (data) {
-            if(data.success){this.github=true;}
-            else {window.location.href = data.msg;}
+            if(data.success){this.github=true;
+                document.getElementById('gitBtn').checked = true;
+            }else {}
+            console.log(this.github);
         })
     },
     checkGit: function (){
-      fetch("/api/login-user",{
-          method: 'get',
-          headers: {
-              "Content-Type": "application/json"
-          },
-      }).then(function (res) {
-          return res.json();
-      }).then(function (data) {
-          if(data.success){this.github=true;}
-          else {this.github=false;}
-      })
+        window.location.href = "/api/login";
     },
     closeInstruction: function () {
       this.openedInstruction = false;
@@ -86,7 +115,8 @@ var app = new Vue({
           'g-recaptcha-response': response,
           'asset': currency
         };
-        fetch('/api/request', {
+        // fetch('/api/request', {
+        fetch('github.json', {
           method: 'post',
           body: JSON.stringify(request),
           headers: {
