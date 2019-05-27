@@ -59,8 +59,8 @@ var app = new Vue({
     checkGit: function (){
       if(document.getElementById('gitBtn').checked){
         if(this.userLanguage === 'zh'){
-          alert('Github验证成功，无需重复验证');
           document.getElementById('gitBtn').checked = true;
+          alert('Github验证成功，无需重复验证');
         }else {
           alert('Github has been verified without repeated verification');
         }
