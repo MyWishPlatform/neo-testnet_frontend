@@ -53,13 +53,14 @@ var app = new Vue({
       }).then(function (data) {
         if(data.success){
           document.getElementById('gitBtn').checked = true;
+          document.getElementById('gitBtn').setAttribute("disabled", true);
         }
       })
+
     },
     checkGit: function (){
       if(document.getElementById('gitBtn').checked){
         if(this.userLanguage === 'zh'){
-          document.getElementById('gitBtn').checked = true;
           alert('Github验证成功，无需重复验证');
         }else {
           alert('Github has been verified without repeated verification');
