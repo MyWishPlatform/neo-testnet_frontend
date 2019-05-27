@@ -60,6 +60,7 @@ var app = new Vue({
       if(document.getElementById('gitBtn').checked){
         if(this.userLanguage === 'zh'){
           alert('Github验证成功，无需重复验证');
+          document.getElementById('gitBtn').checked = true;
         }else {
           alert('Github has been verified without repeated verification');
         }
