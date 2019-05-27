@@ -23,7 +23,7 @@ var app = new Vue({
     openedInstruction: false,
     success: false,
     errorText: '',
-    github:document.getElementById('gitBtn').checked ,
+    github:false,
     userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0]
   },
   mounted: function () {
@@ -53,22 +53,13 @@ var app = new Vue({
         return res.json();
       }).then(function (data) {
         if(data.success){
+          document.getElementById('gitBtn').checked = true;
           this.github = true;
         }
       })
     },
     checkGit: function (){
-      if(this.github){
-        if (this.userLanguage === 'zh') {
-            alert( "Github验证成功，无需重复验证。");
-        } else {
-            alert( "Github has been verified without repeated verification.");
-        }
-        this.github = true;
-      }else {
-        this.github =false;
-        window.location.href = "/api/login";
-      }
+      window.location.href = "/api/login";
     },
     closeInstruction: function () {
       this.openedInstruction = false;
@@ -79,6 +70,7 @@ var app = new Vue({
     sendNeo: function (currency) {
       const self = this;
       self.success = false;
+      this.getGit();
 
       var response = grecaptcha.getResponse();
       if (this.isValid && response.length != 0 && this.github) {
