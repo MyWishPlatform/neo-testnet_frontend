@@ -23,7 +23,6 @@ var app = new Vue({
     openedInstruction: false,
     success: false,
     errorText: '',
-    github:false,
     userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0]
   },
   mounted: function () {
@@ -54,12 +53,19 @@ var app = new Vue({
       }).then(function (data) {
         if(data.success){
           document.getElementById('gitBtn').checked = true;
-          this.github = true;
         }
       })
     },
     checkGit: function (){
-      window.location.href = "/api/login";
+      if(document.getElementById('gitBtn').checked){
+        if(this.userLanguage === 'zh'){
+          alert('Github验证成功，无需重复验证');
+        }else {
+          alert('Github has been verified without repeated verification');
+        }
+      }else {
+          window.location.href = "/api/login";
+      }
     },
     closeInstruction: function () {
       this.openedInstruction = false;
@@ -70,10 +76,10 @@ var app = new Vue({
     sendNeo: function (currency) {
       const self = this;
       self.success = false;
-      this.getGit();
+      let github = document.getElementById('gitBtn').checked;
 
       var response = grecaptcha.getResponse();
-      if (this.isValid && response.length != 0 && this.github) {
+      if (this.isValid && response.length != 0 && github) {
         var request = {
           address: this.key,
           'g-recaptcha-response': response,
@@ -127,7 +133,7 @@ var app = new Vue({
         } else {
           this.errorText = "Invalid address. Please check your input.";
         }
-      }else if(!this.github){
+      }else if(!github){
         if (this.userLanguage === 'zh') {
             this.errorText = "请添加github验证";
         } else {
